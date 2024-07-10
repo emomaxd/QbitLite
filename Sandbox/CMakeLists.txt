@@ -1,23 +1,23 @@
 project(Sandbox)
 
-set(GLEW_DIR "${CMAKE_SOURCE_DIR}/Engine/vendor/glew")
-set(GLFW_DIR "${CMAKE_SOURCE_DIR}/Engine/vendor/glfw")
-set(IMGUI_DIR "${CMAKE_SOURCE_DIR}/Engine/vendor/imgui")
-set(GLM_DIR "${CMAKE_SOURCE_DIR}/Engine/vendor/glm")
+set(GLEW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Engine/vendor/glew")
+set(GLFW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Engine/vendor/glfw")
+set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Engine/vendor/imgui")
+set(GLM_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Engine/vendor/glm")
 
 
-file(GLOB_RECURSE SANDBOX_SOURCES "${CMAKE_SOURCE_DIR}/Sandbox/src/*.cpp")
-file(GLOB_RECURSE SANDBOX_HEADERS "${CMAKE_SOURCE_DIR}/Sandbox/src/*.hpp")
-file(GLOB_RECURSE SANDBOX_HEADERS "${CMAKE_SOURCE_DIR}/Sandbox/src/*.h")
+file(GLOB_RECURSE SANDBOX_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE SANDBOX_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp")
+file(GLOB_RECURSE SANDBOX_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
 
 add_executable(Sandbox ${SANDBOX_SOURCES} ${SANDBOX_HEADERS})
 
 # Include directories
 target_include_directories(Sandbox PRIVATE 
-    ${CMAKE_SOURCE_DIR}/Engine
-    ${CMAKE_SOURCE_DIR}/Engine/src
-    ${CMAKE_SOURCE_DIR}/Engine/vendor
-    ${CMAKE_SOURCE_DIR}/Engine/vendor/spdlog/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Engine
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Engine/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Engine/vendor
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Engine/vendor/spdlog/include
     ${GLFW_DIR}/install/include 
     ${GLEW_DIR}/include
     ${IMGUI_DIR}
@@ -28,7 +28,7 @@ target_include_directories(Sandbox PRIVATE
 )
 
 if(WIN32)
-    target_precompile_headers(Sandbox PRIVATE "${CMAKE_SOURCE_DIR}/Engine/src/qbpch.h")
+    target_precompile_headers(Sandbox PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../Engine/src/qbpch.h")
     target_compile_definitions(Sandbox PRIVATE QB_PLATFORM_WINDOWS GLFW_INCLUDE_NONE)
 
     

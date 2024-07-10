@@ -1,15 +1,15 @@
 # Define directories for third-party libraries
-set(GLEW_DIR "${CMAKE_SOURCE_DIR}/Engine/vendor/glew")
-set(GLFW_DIR "${CMAKE_SOURCE_DIR}/Engine/vendor/glfw")
-set(IMGUI_DIR "${CMAKE_SOURCE_DIR}/Engine/vendor/imgui")
-set(GLM_DIR "${CMAKE_SOURCE_DIR}/Engine/vendor/glm")
+set(GLEW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glew")
+set(GLFW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw")
+set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/imgui")
+set(GLM_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm")
 
 
 # Glob source files
 file(GLOB_RECURSE ENGINE_SRC
-    "${CMAKE_SOURCE_DIR}/Engine/src/*.cpp"
-    "${CMAKE_SOURCE_DIR}/Engine/src/*.hpp"
-    "${CMAKE_SOURCE_DIR}/Engine/src/*.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h"
 )
 file(GLOB IMGUI_SRC
     "${IMGUI_DIR}/*.cpp"
@@ -26,10 +26,10 @@ add_library(Engine
 
 # Include directories
 target_include_directories(Engine PRIVATE 
-    ${CMAKE_SOURCE_DIR}/Engine
-    ${CMAKE_SOURCE_DIR}/Engine/src
-    ${CMAKE_SOURCE_DIR}/Engine/vendor
-    ${CMAKE_SOURCE_DIR}/Engine/vendor/spdlog/include
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include
     ${GLFW_DIR}/install/include 
     ${GLEW_DIR}/include
     ${IMGUI_DIR}
@@ -44,7 +44,7 @@ target_compile_definitions(Engine PRIVATE GLEW_STATIC)
 
 # Link libraries based on the operating system
 if(WIN32)
-    target_precompile_headers(Engine PRIVATE "${CMAKE_SOURCE_DIR}/Engine/src/qbpch.h")
+    target_precompile_headers(Engine PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src/qbpch.h")
     target_compile_definitions(Engine PRIVATE QB_PLATFORM_WINDOWS GLFW_INCLUDE_NONE)
 
     
