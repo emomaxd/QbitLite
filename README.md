@@ -1,6 +1,6 @@
 # QbitLite
 
-QbitLite is a lightweight version of the Qbit engine, optimized for rapid application development without the editor component.
+QbitLite is a lightweight version of the [Qbit](https://github.com/EmomaxD/Qbit) engine, optimized for rapid application development without the editor component.
 
 ## Features
 
