@@ -9,10 +9,9 @@
 *CMakeFiles
 
 *.dir
-*Release
+
 
 *.exe
-*.lib
 
 *.pdb
 
