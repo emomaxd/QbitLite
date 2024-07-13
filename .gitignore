@@ -9,7 +9,6 @@
 *CMakeFiles
 
 *.dir
-*Debug
 *Release
 
 *.exe
