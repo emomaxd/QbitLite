@@ -3,6 +3,8 @@ set(GLEW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glew")
 set(GLFW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw")
 set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/imgui")
 set(GLM_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm")
+set(ASSIMP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/assimp")
+
 
 
 # Glob source files
@@ -30,7 +32,7 @@ target_include_directories(Engine PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/vendor
     ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include
-    ${GLFW_DIR}/install/include 
+    ${GLFW_DIR}/include 
     ${GLEW_DIR}/include
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends
@@ -50,7 +52,7 @@ if(WIN32)
     
 
     target_link_directories(Engine PRIVATE 
-        ${GLFW_DIR}/install/lib
+        ${GLFW_DIR}/build/src
         ${GLEW_DIR}/Windows/lib/Release/x64
     )
     target_link_libraries(Engine PRIVATE 
@@ -61,8 +63,11 @@ if(WIN32)
         winmm
     )
 elseif(UNIX)
+    target_precompile_headers(Engine PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src/qbpch.h")
+    target_compile_definitions(Engine PRIVATE QB_PLATFORM_LINUX GLFW_INCLUDE_NONE STBI_NO_SIMD)
+
     target_link_directories(Engine PRIVATE 
-        ${GLFW_DIR}/install/lib 
+        ${GLFW_DIR}/build/src 
         ${GLEW_DIR}/lib
     )
     target_link_libraries(Engine PRIVATE 

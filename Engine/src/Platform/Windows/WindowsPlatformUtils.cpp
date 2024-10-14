@@ -2,11 +2,15 @@
 #include "Qbit/Utils/PlatformUtils.h"
 #include "Qbit/Core/Application.h"
 
-#include <commdlg.h>
-#include <GLFW/glfw3.h>
 
+#ifdef WIN32
+#include <commdlg.h>
 #define GLFW_EXPOSE_NATIVE_WIN32
 #include <GLFW/glfw3native.h>
+#endif
+
+#include <GLFW/glfw3.h>
+
 
 namespace Qbit {
 
@@ -14,7 +18,7 @@ namespace Qbit {
 	{
 		return (float)glfwGetTime();
 	}
-
+	#ifdef WIN32
 	std::string FileDialogs::OpenFile(const char* filter)
 	{
 		OPENFILENAMEA ofn;
@@ -62,4 +66,5 @@ namespace Qbit {
 
 		return std::string();
 	}
+	#endif
 }

@@ -1,5 +1,9 @@
 #pragma once
 
+#define QB_PROFILE_FUNCTION()
+#define QB_PROFILE_SCOPE(X)
+#define QB_PROFILE_BEGIN_SESSION(X, Y)
+#define QB_PROFILE_END_SESSION()
 
 #include <iostream>
 #include <memory>
@@ -15,7 +19,6 @@
 #include <unordered_set>
 
 #include "Qbit/Core/Base.h"
-#include "Qbit/Debug/Instrumentor.h"
 #include "Qbit/Core/Log.h"
 
 

@@ -5,7 +5,6 @@
 #include "Qbit/Core/KeyCodes.h"
 #include "Qbit/Core/MouseCodes.h"
 
-#include <glfw/glfw3.h>
 
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/quaternion.hpp>

@@ -1,20 +1,37 @@
+# OUTPUT FILES
+*.exe
+*.o
+*.out
+*.pdb
+*.a
+
+# CMAKE BUILD FILES
+**/CMakeFiles
+**/CMakeCache.txt
+*.cmake
+
+# LINUX SPECIFIED BUILD FILES
+**/Makefile
+
+# VISUAL STUDIO FILES
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
 *.sln
-*.vs
+*.csproj
 
-*.cmake
-*CMakeCache.txt
-*CMakeFiles
+# VISUAL STUDIO DIRECTORIES
+**/.vs/
+**/obj/
+**/x64/
+**/*.dir/
+**/Debug/
+**/Release/ 
 
-*.dir
+# LOGS
+*.log
+*.recipe
+*.tlog
 
-
-*.exe
-
-*.pdb
-
-install
-
-examples
+# VSCODE
+/.vscode

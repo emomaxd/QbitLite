@@ -5,7 +5,7 @@
 #include "Input.h"
 
 #include <GL/glew.h>
-#include <glfw/glfw3.h>
+#include <GLFW/glfw3.h>
 
 #include "Qbit/Renderer/Shader.h"
 #include <Platform/OpenGL/OpenGLShader.h>
