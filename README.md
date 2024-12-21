@@ -16,7 +16,7 @@ To get started with QbitLite, check [QbitAppTemplate](https://github.com/emomaxd
 ## Cloning and building the standalone library
 
 ```bash
-git clone --recursive
+git clone --recursive https://github.com/emomaxd/QbitLite.git
 cd Scripts
 ./Setup.sh or ./Setup.bat
 ./CreateSolution.sh or ./CreateSolution.bat
