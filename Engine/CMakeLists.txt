@@ -1,5 +1,6 @@
 # Define directories for third-party libraries
-set(GLEW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glew")
+set(GLEW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/GLEW")
+set(GLEW_WIN_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glewWin")
 set(GLFW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw")
 set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/imgui")
 set(GLM_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm")
@@ -53,7 +54,7 @@ if(WIN32)
 
     target_link_directories(Engine PRIVATE 
         ${GLFW_DIR}/build/src
-        ${GLEW_DIR}/Windows/lib/Release/x64
+        ${GLEW_WIN_DIR}/Windows/lib/Release/x64
     )
     target_link_libraries(Engine PRIVATE 
         glew32s 

@@ -1,6 +1,6 @@
 # QbitLite
 
-QbitLite is a lightweight version of the [Qbit](https://github.com/EmomaxD/Qbit) engine, optimized for rapid application development without the editor component.
+QbitLite is a lightweight version of the [Qbit](https://github.com/emomaxd/Qbit), optimized for rapid application development without the editor component.
 
 ## Features
 
@@ -11,4 +11,17 @@ QbitLite is a lightweight version of the [Qbit](https://github.com/EmomaxD/Qbit)
 
 ## Getting Started
 
-To get started with QbitLite, check [QbitAppTemplate](https://github.com/EmomaxD/QbitAppTemplate)
+To get started with QbitLite, check [QbitAppTemplate](https://github.com/emomaxd/QbitAppTemplate)
+
+## Cloning and building the standalone library
+
+```bash
+git clone --recursive
+cd Scripts
+./Setup.sh or ./Setup.bat
+./CreateSolution.sh or ./CreateSolution.bat
+cd ..
+cmake --build . -- -j8
+```
+
+libEngine.a file will be inside Engine/ directory.
