@@ -68,7 +68,7 @@ echo "  [BUILD] Building GLFW Debug Configuration..."
 echo
 echo "=============================================================="
 sleep 2
-cmake --build build/ --config Debug
+cmake --build build/ --config Debug -- -j20
 if [ $? -ne 0 ]; then
     echo -e "${ERROR_COLOR}=============================================================="
     echo
@@ -86,7 +86,7 @@ echo "  [BUILD] Building GLFW Release Configuration..."
 echo
 echo "=============================================================="
 sleep 2
-cmake --build build/ --config Release
+cmake --build build/ --config Release -- -j20
 if [ $? -ne 0 ]; then
     echo -e "${ERROR_COLOR}=============================================================="
     echo
@@ -133,7 +133,7 @@ echo "  [BUILD] Building Assimp Debug Configuration..."
 echo
 echo "=============================================================="
 sleep 2
-cmake --build build --config Debug
+cmake --build build --config Debug -- -j20
 if [ $? -ne 0 ]; then
     echo -e "${ERROR_COLOR}=============================================================="
     echo
@@ -151,7 +151,7 @@ echo "  [BUILD] Building Assimp Release Configuration..."
 echo
 echo "=============================================================="
 sleep 2
-cmake --build build --config Release
+cmake --build build --config Release -- -j20
 if [ $? -ne 0 ]; then
     echo -e "${ERROR_COLOR}=============================================================="
     echo
@@ -180,7 +180,7 @@ sleep 2
 cd GLEW
 cd auto
 # Run Makefile for GLEW
-make
+make -j20
 if [ $? -ne 0 ]; then
     echo -e "${ERROR_COLOR}=============================================================="
     echo
@@ -192,7 +192,7 @@ fi
 
 cd ..
 
-make
+make -j20
 if [ $? -ne 0 ]; then
     echo -e "${ERROR_COLOR}=============================================================="
     echo
